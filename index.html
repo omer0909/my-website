@@ -6,8 +6,23 @@
     <title>Ömer Faruk Öz</title>
 </head>
 <body>
-    Merhabalar Siteme Hoş Geldiniz!
-    <img src="https://scontent.fsaw1-2.fna.fbcdn.net/v/t1.0-9/117145930_348550606160282_7717352788142125963_n.jpg?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=BhgRTLZ7N3YAX9OZrMq&_nc_ht=scontent.fsaw1-2.fna&oh=5e9c33f990433c60fe816475aec5c95f&oe=6030C163" alt="">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/jhaLsG5wqKQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <canvas id="unity-canvas" style="position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background: #231F20"></canvas>
+    <script src="Build/html game.loader.js"></script>
+    <script>
+    createUnityInstance(document.querySelector("#unity-canvas"), {
+      dataUrl: "Build/html game.data.gz",
+      frameworkUrl: "Build/html game.framework.js.gz",
+      codeUrl: "Build/html game.wasm.gz",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "unity maze",
+      productVersion: "0.1",
+    });
+  </script>
 </body>
 </html>
