@@ -6,6 +6,20 @@
     <title>Ömer Faruk Öz</title>
 </head>
 <body>
-    ömer faruk öz !!
+<canvas id="tuval" width="1000" height="1000" style="border:1px solid;">
+</canvas>
+<script>
+function hareket(e){
+    cizim.beginPath();
+    cizim.arc(e.x,e.y,50,0,2*Math.PI);
+    cizim.stroke();
+}
+
+tuval=document.getElementById("tuval");
+cizim=tuval.getContext("2d");
+tuval.addEventListener('mousemove',hareket);
+
+
+</script>
 </body>
 </html>
