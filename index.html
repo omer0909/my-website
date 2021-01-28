@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ömer</title>
+    <style>
+        #site {
+            width: 900px;
+            margin: auto;
+        }
+
+        #header {
+            height: 80px;
+        }
+
+        #nav {
+            height: 50px;
+            box-shadow: 0px 0px 10px rgb(105, 105, 105);
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        #article {
+            float: left;
+            width: 700px;
+            min-height: 500px;
+        }
+
+        #aside {
+            float: right;
+            width: 200px;
+            min-height: 500px;
+            background-color: rgb(211, 211, 211);
+            border-radius: 20px;
+        }
+
+        #footer {
+            float: left;
+            width: 900px;
+            background-color: gray;
+            border-radius: 15px;
+            min-height: 30px;
+        }
+
+        #resmim {
+            height: 60px;
+            width: 60px;
+            border-radius: 10px;
+            margin: 10px;
+            float: left;
+        }
+
+        #link {
+            height: 40px;
+            width: 40px;
+            float: right;
+            margin: 10px;
+        }
+
+        #baslik {
+            margin: auto;
+            text-align: center;
+            position: relative;
+            top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .navButton {
+            text-decoration: none;
+            border-radius: 10px 3px;
+            padding: 10px;
+            margin-left: 20px;
+            position: relative;
+            top: 17px;
+            color: white;
+            background-color: rgb(111, 117, 126);
+            text-shadow: 1px 1px 3px black;
+
+        }
+
+        .navButton:hover {
+            text-decoration: none;
+            border-radius: 10px 3px;
+            padding: 10px;
+            margin-left: 20px;
+            position: relative;
+            top: 17px;
+            color: white;
+            background-color: rgb(87, 91, 99);
+            text-shadow: 1px 1px 3px black;
+
+        }
+
+        .baslik {
+            margin: 15px;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site">
+        <header id="header">
+            <img id="resmim" src="pictures/resmim.jpg" alt="resmim" title="ömer faruk öz">
+            <a href="https://www.facebook.com/omerfaruk.oz.376"><img id="link" src="pictures/face.png" alt="facebook"
+                    title="facebook"></a>
+            <a href="https://github.com/omer0909"><img id="link" src="pictures/github.png" alt="GitHub"
+                    title="GitHub"></a>
+            <a href="https://www.youtube.com/channel/UCH5EvKwjT7KGRd9PJlQ5EoA"><img id="link" src="pictures/youtube.png"
+                    alt="YouTube" title="YouTube"></a>
+            <a href="https://www.artstation.com/omer09"><img id="link" src="pictures/art.png" alt="art" title="art"></a>
+            <h1 id="baslik">Ömer Faruk Öz</h1>
+        </header>
+        <nav id="nav">
+            <a class="navButton" onclick="mainScene()">ana sayfa</a>
+            <a class="navButton" onclick="articleScene()">makaleler</a>
+            <a class="navButton" onclick="gameScene()">oyunlar</a>
+        </nav>
+        <article id="article">
+            <div id="main">
+                <h2>web site (ana sayfa)</h2>
+                <p>merhaba siteme hoş geldiniz <br> </p>
+            </div>
+
+            <div id="games">
+                <h2>web site (oyunlar)</h2>
+                <p>merhaba siteme hoş geldiniz <br> </p>
+            </div>
+
+            <div id="articles">
+                <h2>web site (makaleler)</h2>
+                <p>merhaba siteme hoş geldiniz <br> </p>
+            </div>
+
+
+        </article>
+        <aside id="aside">
+            <h3 class="baslik">Diğer içerikler</h3>
+        </aside>
+        <footer id="footer">
+            sondaki bilgi
+        </footer>
+    </div>
+</body>
+<script>
+    mainScene();
+    function mainScene() {
+        document.getElementById("main").style.display = "block";
+        document.getElementById("articles").style.display = "none";
+        document.getElementById("games").style.display = "none";
+
+    }
+    function articleScene() {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("articles").style.display = "block";
+        document.getElementById("games").style.display = "none";
+
+    }
+    function gameScene() {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("articles").style.display = "none";
+        document.getElementById("games").style.display = "block";
+    }
+</script>
+
+</html>
