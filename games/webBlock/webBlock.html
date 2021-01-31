@@ -1,72 +1,76 @@
 <!DOCTYPE html>
 <html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Ömer Faruk webBlock</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body style="background-color: black;">
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-mobile-warning">
+        WebGL builds are not supported on mobile devices.
+      </div>
+      <div id="unity-footer">
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Full Screen</div>
+      </div>
+    </div>
+    <script>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/webBlock.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/webBlock.data",
+        frameworkUrl: buildUrl + "/webBlock.framework.js",
+        codeUrl: buildUrl + "/webBlock.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "ozGames",
+        productName: "webBlock",
+        productVersion: "0.1",
+      };
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Ömer Faruk webBlock</title>
-  <style>
-    #loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0px;
-      left: 0px;
-      z-index: 100;
-      background: black;
-      font-size: 300%;
-      color: white;
-    }
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var mobileWarning = document.querySelector("#unity-mobile-warning");
 
-    #unity-canvas {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0px;
-      left: 0px;
-      background: #808080
-    }
-  </style>
-</head>
-
-<body style="text-align: center">
-  <canvas id="unity-canvas"></canvas>
-  <div id="loading">
-    Loading...
-  </div>
-
-  <script src="Build/webBlock.loader.js"></script>
-  <script>
-    document.getElementById("loading").style.display = "none";
-    function UnityProgress(unityInstance, progress) {
-      alert("oldu galiba");
-      if (!unityInstance.Module) {
-        return;
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        config.devicePixelRatio = 1;
+        mobileWarning.style.display = "block";
+        setTimeout(() => {
+          mobileWarning.style.display = "none";
+        }, 5000);
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
+      loadingBar.style.display = "block";
 
-      if (!unityInstance.progress) {
-        document.getElementById("loading").style.display = "block";
-      }
-      if (progress == 1) {
-        document.getElementById("loading").style.display = "none";
-      }
-      
-
-    }
-
-    createUnityInstance(document.querySelector("#unity-canvas"), {
-      dataUrl: "Build/webBlock.data",
-      frameworkUrl: "Build/webBlock.framework.js",
-      codeUrl: "Build/webBlock.wasm",
-      streamingAssetsUrl: "StreamingAssets",
-      companyName: "ozGames",
-      productName: "webBlock",
-      productVersion: "0.1",
-    });
-  </script>
-</body>
-
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
 </html>
