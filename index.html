@@ -7,7 +7,7 @@
     <title>ömer</title>
     <style>
         #site {
-            width: 900px;
+            width: 100%;
             margin: auto;
         }
 
@@ -24,13 +24,13 @@
 
         #article {
             float: left;
-            width: 700px;
+            width: 70%;
             min-height: 500px;
         }
 
         #aside {
             float: right;
-            width: 200px;
+            width: 30%;
             min-height: 500px;
             background-color: rgb(211, 211, 211);
             border-radius: 20px;
@@ -38,7 +38,7 @@
 
         #footer {
             float: left;
-            width: 900px;
+            width: 100%;
             background-color: gray;
             border-radius: 15px;
             min-height: 30px;
@@ -72,6 +72,7 @@
             border-radius: 5px;
             box-shadow: 2px 2px 10px rgb(131, 131, 131);
         }
+
         #link:active {
             height: 40px;
             width: 40px;
@@ -116,6 +117,7 @@
             text-shadow: 1px 1px 3px black;
             cursor: pointer;
         }
+
         .navButton:active {
             text-decoration: none;
             border-radius: 10px 3px;
@@ -132,6 +134,13 @@
         .baslik {
             margin: 15px;
             font-family: cursive;
+        }
+
+        .frame {
+            border-width: 0px;
+            float: left;
+            width: 100%;
+            min-height: 1000px;
         }
     </style>
 </head>
@@ -162,15 +171,12 @@
 
             <div id="games">
                 <h2>web site (oyunlar)</h2>
-                <p>merhaba ilk oyun olarak siteye minecraft ekledim<br> </p>
-                <a href="games/webBlock/webBlock.html">
-                    <img style="height: 100px;width: 100px;" src="pictures/minecraft.png" alt=""><br>OYNA
-                </a>
+                <iframe src="games.html" class="frame"></iframe>
             </div>
 
             <div id="articles">
                 <h2>web site (makaleler)</h2>
-                <p>merhaba siteme hoş geldiniz <br> </p>
+                <iframe src="articles.html" class="frame"></iframe>
             </div>
 
 
