@@ -40,8 +40,20 @@
 
   <script src="Build/webBlock.loader.js"></script>
   <script>
-    window.onload = (event) => {
-      document.getElementById("loading").style.display = "none";
+    document.getElementById("loading").style.display = "none";
+    function UnityProgress(unityInstance, progress) {
+      if (!unityInstance.Module) {
+        return;
+      }
+
+      if (!unityInstance.progress) {
+        document.getElementById("loading").style.display = "block";
+      }
+      if (progress == 1) {
+        document.getElementById("loading").style.display = "none";
+      }
+      alert(progress);
+
     }
 
     createUnityInstance(document.querySelector("#unity-canvas"), {
