@@ -42,6 +42,7 @@
   <script>
     document.getElementById("loading").style.display = "none";
     function UnityProgress(unityInstance, progress) {
+      alert("oldu galiba");
       if (!unityInstance.Module) {
         return;
       }
@@ -52,7 +53,7 @@
       if (progress == 1) {
         document.getElementById("loading").style.display = "none";
       }
-      alert(progress);
+      
 
     }
 
