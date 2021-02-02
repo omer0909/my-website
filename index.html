@@ -9,6 +9,7 @@
         #site {
             width: 100%;
             margin: auto;
+            font-size: 20px;
         }
 
         #header {
@@ -42,6 +43,10 @@
             background-color: gray;
             border-radius: 15px;
             min-height: 30px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
         #resmim {
@@ -142,6 +147,43 @@
             width: 100%;
             min-height: 1000px;
         }
+
+        .game {
+            float: left;
+            background-color: rgb(202, 202, 202);
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgb(94, 94, 94);
+            text-align: center;
+        }
+
+        .game:hover {
+            float: left;
+            background-color: rgb(145, 215, 228);
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgb(182, 182, 182);
+            text-align: center;
+        }
+
+        .go {
+            float: left;
+            text-decoration: none;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            padding: 3px;
+            border-radius: 15px;
+            margin: 5px;
+        }
+
+        #goTable {
+            background-color: rgb(201, 201, 201);
+            border-radius: 15px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        #gameText{
+            text-decoration: none;
+            font-family: cursive;
+        }
     </style>
 </head>
 
@@ -165,27 +207,198 @@
         </nav>
         <article id="article">
             <div id="main">
-                <h2>web site (ana sayfa)</h2>
-                <p>merhaba siteme hoş geldiniz <br> </p>
+                <h2>Ana Sayfa</h2>
+                <h3>Yeteneklerimiz</h3>
+                <p>
+                    * 3d veya 2d masaüstü, mobil veya web için her kalitede oyun yapılır.
+                    <br><br>
+                    * İstenilen seviyede masaüstü uygulama ve mobil uygulama yapılır.
+                    <br><br>
+                    * 3d animasyon, efekt, vfx, yapılır.
+                    <br><br>
+                    * mimari, ürün göselleştirme veya 3d baskı için ölçülü modelleme yapılır.
+                    <br><br>
+                    *3d baskı için mekanik tasarım yapılır.
+                    <br><br>
+                </p>
+                <h3>Ömer Kimdir</h3>
+                <p>
+                    19 yaşında üniversiteye hazırlanan biriyim.
+                    <br><br>
+                    Daha önce bir animasyon şirketinde 2,5 ay çalıştım. <a href="https://unity.com/">Unity</a> ve <a
+                        href="https://www.blender.org/">blender</a> programlarını çok iyi derdecede biliyorum. Bunun
+                    yanında c# ve python programlama dillerinde bir çok proje geliştirdim. java c++ c html javascript
+                    gibi dillerde küçük projeler geliştirdim. Sektörü takip edebilecek seviyede ingilizcem var.
+                    <br><br>
+                    İlgilendiğim diğer alanlar arasında cnc tenolojileri, arduino, linux, raspberry pi ve popüler
+                    bilimin her dalı bulunmakta.
+                    <br><br>
+                    Gelecekte yapacaklarım arasında, ağır iş yapan 4 bacaklı robot köpekleri açık kaynak ve ucuz bir
+                    şekilde topluma katkı için sunmak var.
+                </p>
+
             </div>
 
             <div id="games">
-                <h2>web site (oyunlar)</h2>
-                <iframe src="games.html" class="frame"></iframe>
+                <h2>Oyunlar</h2>
+                <div class="game">
+                    <a href="games/webBlock/webBlock.html" target="_blank" id="gameText">
+                        <img style="height: 100px;width: 100px;" src="pictures/minecraft.png"
+                            alt=""><br>webBlock<br>OYNA
+                    </a>
+                </div>
+
             </div>
 
             <div id="articles">
-                <h2>web site (makaleler)</h2>
-                <iframe src="articles.html" class="frame"></iframe>
+                <h2>Makaleler</h2>
+                <div id="goTable">
+                    <a href="#blenderAddonlari" class="go">Bazı Blender Addonları</a>
+                </div>
+
+                <h3 id="blenderAddonlari">Bazı Blender Addonları</h3>
+
+                <h4>Blender İçinde Olanlar</h4>
+                archimesh (bina yaparken yardımcı)
+                <br><br>
+                Node Wrangler (node işlerinde bir çok kısayol sağlıyor)
+                <br><br>
+                IvyGen (sarmaşık yaparken yadımcı(bunun ağaç için olanı da sapling tree gen. ama modular tree daha iyi
+                ))IvyGen (sarmaşık yaparken yadımcı(bunun ağaç için olanı da sapling tree gen. ama modular tree daha iyi
+                ))
+                <br><br>
+                A.N.T.Landspace (dağ yapmaya yarıyor)
+                <br><br>
+                Modifier Tools (modifier düzenlerken kolaylık)
+                <br><br>
+                Auto Mirror (mirror yaparken sizi bazı ekstra işlerden kurtarıyor)
+                <br><br>
+                Bool Tool (bool yaparken sizi bazı ekstra işlerden kurtarıyor)
+                <br><br>
+                LoopTools (modellerken kolaylık sağlayan araçları var)
+                <br><br>
+                Auto Tile Size (ekran kartı ile render alıyorsan hız arttırıyor)
+                <br><br>
+                Rigfy (rigleme yaparken kullanabileceğiniz hazır bir iskelet veriyor)
+                <br><br>
+                Dynamic Sky (dinamik olarak değişebilen gökyüzü)
+                <br><br>
+                BlenderKit Asset Library (içinde ücretli veya ücretsiz malzemeler ve nesneler olan bir eklenti)
+                <br><br>
+                Cell Fracture (nesnenizi kırmaya yarıyor)
+                <br><br>
+                Extra Objects (mesh için) (blender mesh oluşturuken eksta mesh şekilleri önerir)
+                <br><br>
+                Extra Objects (curve için) (blender curve oluşturuken eksta curve şekilleri önerir)
+                <br><br>
+                <h4>Ücretliler</h4>
+
+                extreme pbr (büyük bir material malzeme paketi)
+                <br><br>
+                auto rig pro (karakter riglerken büyük kolaylık)
+                <br><br>
+                uv pack master pro (uv map düzenleme işini otomatik bir şekilde çok iyi yapıyor)
+                <br><br>
+                Uv Squares(uv düzenlerken seçilen uv yi düzgünleştiriyor kısayolu alt+e)
+                <br><br>
+                hard ops, box cutter veya herhangi bir hard surface modelleme araç kiti (katı yüzey modellerken işe
+                yarayan eklentiler)
+                <br><br>
+                paint için "b painter" addon çok iyi diyorlar. Layer painter iyi gözüküyor.armor paint şu an geliştirme
+                aşamasında ama daha sonra bedava olur.)
+                <br><br>
+                Moas-Gen (modüler harita tasarlarken işe yarıyor. bu addonu yapan kişinin aynı konu ile alakalı başka
+                addonları da var)
+                <br><br>
+                "Tesselator", buna alternatif olarak ücretsiz bir addon da var "Instant Meshes Remesh"
+                <br><br>
+                Flip Fluids (sıvı simulasyonları için bir addon ama gerek var mı bilmiyorum)
+                <br><br>
+                asset managment (yaptığınız işleri her hangi bir projenizde kullanmak için kaydedebildiğiniz kullanışlı
+                bir araç)
+                <br><br>
+                Retopolow (retopoloji yaparken kullanılabilecek çok iyi bir araç)
+                <br><br>
+                <h4>Ücretsizler</h4>
+
+                <a href="https://github.com/domlysz/BlenderGIS">Blender GIS</a> (google erath vb. yerlerden 3d veya 2d
+                harita indirebiliyorsunuz)
+                <br><br>
+                <a href="https://github.com/wjakob/instant-meshes">Instant Meshes Remesh</a> (kaliteli mesh ören bir
+                addon)
+                <br><br>
+                Easy Hdri (hdr düzenlerken yardımcı olabiliyor (node sistemine girip aynı şeyi yapabiliyorsunuz))
+                <br><br>
+                Kit ops (bazı mekanik çıkartmalar veriyor. onları kullanarak modelleme kolaylığı oluyor)
+                <br><br>
+                modelling cloth (ücretli bir eklenti. en son sürümü hatalı olabileceği için bedava.)(kıyafet yaparken
+                kolaylık sağlıyor)
+                <br><br>
+                JARCH Vis (bina yapmayı kolaylaştırmak için bir eklenti)
+                <br><br>
+                <a href="https://github.com/MaximeHerpin/modular_tree">Modular tree</a> (modular tree)(ağaç yapımını
+                kolaylaştıran bir eklenti)
+                <br><br>
+                <a href="https://mb-lab-community.github.io/MB-Lab.github.io/">MB-Lab</a> (karakter oluşturmak için çok
+                iyi bir araç seti. içinde bir çok özellik var)
+                <br><br>
+                <a href="https://github.com/curtisjamesholt/BY-GEN-public">BY-GEN</a> (modelleme yaparken modellerinize
+                tarz katan bir produceral modelling eklentisi)
+                <br><br>
+                <a href="https://github.com/eliemichel/LilySurfaceScraper">Lily Surface Scapper</a> (binlece materiale
+                her hangi bir amaç için kullanımı ücretsiz erişim sağlayan bir eklenti )
+                <br><br>
+                <a href="https://github.com/stuffmatic/fSpy-Blender">Import fSpy project</a> (resimdeki kameranın
+                konumunu saptamanızı sağlayan açık kaynak bir uygulama olan fSpy nin yardımcı eklentisi)
+                <br><br>
+                <a href="https://fspy.io/">fSpy indir</a>
+                <br><br>
+                <a href="https://github.com/BenjaminSauder/EdgeFlow">EdgeFlow</a> (3ds Max da olup da blender da olmayan
+                bir modelleme aracını ekler)
+                <br><br>
+                MACHIN3tools (makina tarzı modeler modellerken kolaylık olması için araç)
+                <br><br>
+                Mesh Data Transfer (meshler arası veri taransferi yapan bir araç. yaşadığım bir sorun olduğunda bunu
+                indirmiştim (sorunu başka şekilde çözmüştüm ama yine de bazı yerlerde işe yarayabilir) )
+                <br><br>
+                <a href="https://animation-nodes.com/">Animation Nodes</a> (blender programında bir çok yere erişimi
+                olan bir node sistemi. animasyon yapımında veya başka alanlarda kullanılabilir)
+                <br><br>
+                <a href="https://gumroad.com/l/juLNpq">Anti-Seam</a> (tekrar etmeye uygun olmayan resimlerin kenarlarını
+                düzenleyen bir eklenti. bu eklentiyi yapan kişinin yaptığı diğer ücretli eklentiler de iyi)
+                <br><br>
+                <a href="https://github.com/danielenger/Principled-Baker">Principled Baker</a> (bake işlemini aşırı
+                kolaylaştıran bir eklenti)
+                <br><br>
+                Fast Carve (modelleme yaparken işleri kolaylaştıran bir eklenti. bu eklenti ile başka bazı eklentilere
+                ihtiyaç bile kalmıyor)
+                <br><br>
+                Fast Sculpt (çok güzel kısayollar sağlıyor)
+                <br><br>
+                jMesh Tools (programa ilginç araçlar ekleyen bir eklenti. gui görünümü bile değişiyor )
+                <br><br>
+                jSculp Tools ( sculpt yaparken ekstra araç sağlıyor )
+                <br><br>
+                <a href="https://github.com/jayanam/shortcut_VUr">Shortcut VUr</a> (bastığınız tuşun ekranda gözükmesini
+                sağlıyor)
+                <br><br>
+                Texel Density Checker (Uv düzenleme işlemlerinde gerçek dünya için boyut ayarlarken kolaylık sağlıyor)
+                <br><br>
+                welder (modelleme yaparken iki parça arasına kaynak modelleyebiliyor. isterseniz elinizle de
+                çizebiliyorsunuz)
+                <br><br>
+                TexTools (içinde bir çok uv ve bake işlemi barındıran bir addon. Bazı işlemleri geliştiren kişi
+                geliştirmeyi biraktığı için sorun çıkartabiliyor)
+                <br><br>
             </div>
 
 
         </article>
         <aside id="aside">
-            <h3 class="baslik">Diğer içerikler</h3>
+            <h3 class="baslik">Diğer İçerikler</h3>
         </aside>
         <footer id="footer">
-            sondaki bilgi
+            Teşekkürler
         </footer>
     </div>
 </body>
