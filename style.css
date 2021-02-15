@@ -143,6 +143,7 @@
 .game {
     float: left;
     background-color: rgb(202, 202, 202);
+    overflow: hidden;
     border-radius: 15px;
     box-shadow: 2px 2px 10px rgb(94, 94, 94);
     text-align: center;
