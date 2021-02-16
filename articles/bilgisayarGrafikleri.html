@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d Bilgisayar Grafikleri</title>
+</head>
+
+<body>
+    <div style="font-size: 20px; margin: 10%;">
+        <h1 id="bilgisayarGrafikleri">3d Bilgisayar Grafikleri</h1>
+
+        <h2>Kısa Tarih</h2>
+        Eskiden bilgisayar grafikleri yazılımla ve işlemciyle sağlanıyordu. Günümüzde ise bu işlemleri
+        çoğunlukla ekran kartları ile yapıyoruz.
+
+        <h2>popüler ekran kartı apileri</h2>
+        Ekran kartları ile iletişimi OpenGl, DirectX, Vulcan gibi yazılım arayüzleriyle sağlıyoruz. DirectX,
+        windows ve Xbox için microsoft tarafından geliştirilen bir kütüphanedir. Vulcan ise Open gl nin yeni ve
+        gelişmiş Versiyonudur.
+        opengl 2 sürümü de genellikle internet tarayıcılarında kullanılmaktadır. Vulcan DirextX performansına
+        denk performans göstermekte ve çapraz platform çalışmaktadır.
+
+        <h2>Texture Çeşitleri</h2>
+
+        Texture çeşitlerini göstermeden önce size principled shaderdan bahsetmek istiyorum. principled shader
+        doğadaki tüm yüzeyleri simüle etmek için disney mühendisteri tarafından geliştirilen bir standarttır.
+        günümüzde bazı oyun motorları performans için bu standartı karşilamasada genel olarak bu standarta
+        benzemektedir. shader da ışığın nesneyle nasıl etkileşime gireceğini belirleyen koddur ve genellikle
+        ekran kartı için yazılırlar, kameranın ışığı nasıl alacağını belirleyen koda da post processing
+        denmektedir.
+        <br><br>
+        <img src="../pictures/principled.JPG" alt="principled shader">
+        <br>
+
+        <h3>base color (Diffuse veya Albedo da denmektedir.)</h3>
+        Objenin rengini belirler.
+
+        <h3>subsurface</h3>
+        Objenin içinden geçen sızan ışığı belirler. el fenerini elimizle kapatınca elimizin kırmızı görünmesi
+        gibi.(cilt gölgelendiricilerinde kullanılır)
+
+        <h3>metallic (metalness de denmektedir)</h3>
+        Objenin metal olup olmadığını belirler. metallerin en belirgin farkı ışığı hiç emmemeleri ve geri
+        yansıtırken kendi renklerinde yansıtmalarıdır.
+
+        <h3>specular</h3>
+        Objenin ne kadar yansıtıcı oldduğunu belirler bazı programlarda sadece specular kullanılırken
+        bazılarında specular yerine metallic kullanılmaktadır.
+
+        <h3>specularTint</h3>
+        Maddeden gelen yansımaya madde renginden karıştırılacağını belirler.
+
+        <h3>roughness</h3>
+        Maddenin yüzeyinin ne kadar pürüzlü olacağını belirler. Glossy map bunun tam tersidir.
+
+        <h3>anisotropic</h3>
+        Maddeye tornada işenmiş havası verir.
+
+        <h3>sheen</h3>
+        Bakış açısına göre değişen yansıma katsayısını ayarlar.
+
+        <h3>clearcoat</h3>
+        Maddenin üzerine cila sörülmüş havası verir.
+
+        <h3>IOR</h3>
+        Işığın ne kadar fazla kırılacağını belirler. (büyütecin ışığı kırarak görüntüyü büyütmesi gibi.)
+
+        <h3>transmission</h3>
+        Maddenin içinden ışık geçip geçmeyeceğini belirler. (Cam veya jelibon gibi maddeleri yaparken
+        kullanılır.)
+
+        <h3>emission</h3>
+        Maddenin ışık kaynağından bağımsız ışık yaymasını sağlar.
+
+        <h3>alpha</h3>
+        Objenin götüntüden tamamen silinmesini sağlar.
+
+        <h3>normal</h3>
+        Işığın yansıma açılarını belirler. (OpenGl ve DirectX için y eksenleri yani yeşil kanalları terstir.
+        Unity, Godot ve Blender OpenGl, Unreal DirectX kullanır.)
+        <br><br>
+        <img src="../pictures/normalMap.jpg" alt="normal map örneği">
+
+        <h3>bump</h3>
+        Işığın yansıma açılarını belirler. normal map açısal olarak veri depolarken bu yükseklik olarak veri
+        depolar. (normal map çok daha fazla veri depolayabilir)
+
+        <h3>ambient occulusion</h3>
+        Işık hesaplamalarında kolaylık sağlaması için ışık alamayacak girinti yerlerin önceden hesaplanmış
+        halidir.
+
+        <h3>tangent</h3>
+        Yüzey normalleri hesapalrken kullanılan vektördür.
+
+        <h3>-Bunların Yanında-</h3>
+
+        <h3>displacement</h3>
+        Objenin fiziksel pürüzlerini belirler. texture rgba kanallarında da depolanabilmektedir
+
+        <h3>hdri</h3>
+        Gökyüzü görüntüsü taşır
+
+        <h3>3d displacement</h3>
+        Disploacementten farklı olarak objeyi ileri geri hareket ettirmek yerine tüm eksenlerde hareket
+        ettirmektedir
+
+        <h3>light map</h3>
+        Işıkların performans için hesaplanıp depolandığı dokudur
+
+        <h3>*bilgi</h3>
+        Farklı dokular için farklı uv haritaları kullanılabilir.
+
+        <h2>Meshler </h2>
+        Meshler fizksel olarak yüzeyleri depolayan verilerdir.
+        depoladıkları bazı veriler.<br><br>
+
+        *noktalar (vertex)<br>
+        *yönler (normals)<br>
+        *yüzeyler (faces)<br>
+        *nokta renkleri (vertex color)<br>
+        *doku kalıpları (uv)<br>
+
+        <h3>vertex</h3>
+        3d düzlemdeki pozisyonlardır. Ayrıca mesh içinde shape key(morph da denmektedir) kullanarak doğrusal
+        hareket elde edebilirsiniz. Shape key yerine kemik (bone) de kullanabilirsiniz, (bu size sınırsız
+        hareket imkanı sağlar.) ama bu da oyunda gereksiz kasmaya neden olabilir. (Shape key kullanmakta ram den
+        yer, ama günümüz bol ram li cihazlarında bu daha iyi olabilir.)
+
+        <h3>normals</h3>
+        Her vertexin ışığa nasıl tepki vereceğini belirlemek için bir yönü vardır. Normals bu verileri depolar.
+
+        <h3>faces</h3>
+        Vertexlerin yüzeyler için sıralarını depolar. Her 3 vertex bir yüzey oluşturur. bazı programlar daha
+        fazla vertex kullanarak bir yüzey oluşturur, ama hata çıkamaması için çok vertexli yüzeyleri üçlemeyi
+        unutmayın. Bu duruma bir istisna var, iskelet sitemi olan veya olamyan hareketli meshlerde 3 vertexli
+        yüzey(tris) kullanılması yerine 4 vertexli yüzey kullanılması önerilir. (Bunu yapmak texturedeki
+        kaymaların ve normaldeki bozulmaların önüne geçer.)
+
+        <h3>vertex color</h3>
+        Her vertexe özgü renk verebilirsiniz ve bu renkleri uygun shader ile kullanabilirsiniz. bu renkleri
+        blender gibi programlarla 2d doku üzerine pişirebilirsiniz. (bake)
+
+        <h3>uv</h3>
+        Vertexlerin 2 boyutlu dünyada başka bir pozisyon bilgisini taşır. bu bizim resimleri objelere
+        giydirebilmemizi sağlar. (Bunu kullamak yerine farklı projection yöntemlerini de kullanabilirsiniz.)
+
+        <h2>Post Processing</h2>
+        Işık kameraya geldikten sonra yapılan işlemlerdir. <br>
+        bloom, vignette, motion blur, depth of field, ambient occulusion, anti alising, lens flare gibi işlemler
+        örnek verilebilir.
+
+        <h3>bloom</h3>
+        Işığın fazla olduğu yerlere parlama efekti ekler.
+
+        <h3>vignette</h3>
+        Ekranın kenarlarını karartır.
+
+        <h3>motion blur</h3>
+        Hareketin olduğu yerleri bulanıklaştırır.
+
+        <h3>depth of field</h3>
+        Odak noktasına uzak yerleri bulanıklaştırır.
+
+        <h3>ambient occulusion</h3>
+        Işığın zor gireceği dar yerlere nasıl davranacağını belirlememizi sağlar.
+
+        <h3>anti alising</h3>
+        Pixellerin renk kalitesini arttırmak için ekstra işlem yaparak görüntüyü
+        iyileştirir.
+
+        <h3>lens flare</h3>
+        Işığa lensden yansıyor efekti verir.
+
+        <h2>Bevelin Önemi</h2>
+        Bevel objeleri daha gerçekçi algılamamıza yardımcı olur. Eğer objenizde normal map kullanıyorsanız,
+        bevel görünümünü normal map üzerine high poly objeyle veya high poly olmadan(çeşitli shader sistemleri
+        kullanarak) bake alabilirsiniz.
+
+        <h2>Texture Kullanımı</h2>
+        Textureleri proje yapım aşamasındayken sıkıştırmamaya dikkat edin. jpg ile resmi kaydederseniz o resim
+        sıkıştırılmış olur, jpg yerine png ile kaydedebilirsiniz. Bir resmi ilk kez sıkıştırınca sorun olmaz ama
+        proje yaparken defalarca düzenleme yaptığımız için resim kalitesiz olacaktır.
+
+        <h2>Işın İzlemeli Render</h2>
+        bu render yöntemi ışığı en iyi şekilde hesaplayabilmek için ekstra işlem yapar ve diğer yöntemlere göre
+        daha yavaştır, ama kullanımı daha kolay ve daha kalitelidir. işlemciyi veya optix, cuda ,openCl gibi
+        teknolojileri kullanabilir. bake işlemleri genelde bu teknoloji ile yapılır ve bake edilen resimde
+        karıncalanma olabilir. karıncalanma olan durumlarda open image denoiser vb. denoise teknolojileri
+        kullanılabilir.film, reklam, vfx gibi alanlarda çoğunlukla bu teknoloji kullanılmaktadır.
+        <br><br>
+    </div>
+</body>
+
+</html>
