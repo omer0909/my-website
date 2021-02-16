@@ -17,8 +17,10 @@
 
 #article {
     float: left;
-    width: 70%;
+    width: 60%;
     min-height: 500px;
+    padding: 5%;
+    padding-top: 0px;
 }
 
 #aside {
