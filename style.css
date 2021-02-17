@@ -5,11 +5,11 @@
 }
 
 #header {
-    height: 80px;
+    min-height: 80px;
 }
 
 #nav {
-    height: 55px;
+    min-height: 55px;
     box-shadow: 0px 0px 10px rgb(105, 105, 105);
     border-radius: 15px;
     margin-bottom: 10px;
